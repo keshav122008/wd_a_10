@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PowerZone Fitness Club</title>
+  <style>
+    body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      margin: 0;
+      background: #f4f7f6;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background: #1d3557;
+      color: white;
+      padding: 25px 0;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.8rem;
+      letter-spacing: 3px;
+      font-weight: 900;
+    }
+    nav {
+      margin-top: 12px;
+    }
+    nav a {
+      color: #a8dadc;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #f4a261;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 35px auto 70px;
+      padding: 0 18px;
+    }
+    h2 {
+      color: #457b9d;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      border-bottom: 3px solid #f4a261;
+      padding-bottom: 8px;
+      letter-spacing: 1.5px;
+    }
+    /* Class Schedule */
+    .schedule-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 40px;
+    }
+    .schedule-table th, .schedule-table td {
+      border: 1px solid #ddd;
+      padding: 12px 15px;
+      text-align: center;
+      font-weight: 600;
+      color: #333;
+    }
+    .schedule-table th {
+      background: #a8dadc;
+      color: #1d3557;
+    }
+    .schedule-table tbody tr:hover {
+      background-color: #f4a26133;
+    }
+    /* Trainers */
+    .trainers {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(260px, 1fr));
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+    .trainer-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+      overflow: hidden;
+      transition: transform 0.3s;
+      cursor: default;
+    }
+    .trainer-card:hover {
+      transform: scale(1.05);
+    }
+    .trainer-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+    .trainer-info {
+      padding: 18px 15px;
+      text-align: center;
+    }
+    .trainer-info h3 {
+      margin: 10px 0 6px;
+      color: #1d3557;
+    }
+    .trainer-info p {
+      color: #555;
+      margin: 0 0 12px;
+      font-size: 0.95rem;
+    }
+    /* Membership Plans */
+    .plans {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      flex-wrap: wrap;
+      margin-bottom: 50px;
+    }
+    .plan {
+      background: #fca311;
+      color: white;
+      border-radius: 16px;
+      box-shadow: 0 6px 24px rgba(252, 163, 17, 0.4);
+      padding: 28px 25px;
+      width: 280px;
+      text-align: center;
+      transition: box-shadow 0.3s ease;
+      cursor: default;
+    }
+    .plan:hover {
+      box-shadow: 0 8px 28px rgba(252, 163, 17, 0.7);
+    }
+    .plan h3 {
+      margin: 0 0 16px;
+      font-weight: 900;
+      font-size: 1.8rem;
+    }
+    .plan p {
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+    .plan .price {
+      font-size: 2.2rem;
+      font-weight: 900;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+    }
+    /* Blog */
+    .blog-posts {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(300px, 1fr));
+      gap: 28px;
+      margin-bottom: 50px;
+    }
+    .blog-post {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      cursor: default;
+    }
+    .blog-post:hover {
+      transform: translateY(-6px);
+    }
+    .blog-post img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+    .blog-content {
+      padding: 18px 16px;
+    }
+    .blog-content h4 {
+      color: #1d3557;
+      margin: 10px 0 12px;
+    }
+    .blog-content p {
+      color: #555;
+      font-size: 0.96rem;
+      margin: 0 0 12px;
+    }
+    /* Footer */
+    footer {
+      background: #1d3557;
+      color: #a8dadc;
+      text-align: center;
+      padding: 22px 0;
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-top: 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>PowerZone Fitness Club</h1>
+    <nav>
+      <a href="#schedule">Class Schedule</a>
+      <a href="#trainers">Meet Trainers</a>
+      <a href="#plans">Membership Plans</a>
+      <a href="#blog">Fitness Blog</a>
+    </nav>
+  </header>
+  <div class="container">
+    <section id="schedule">
+      <h2>Class Schedule</h2>
+      <table class="schedule-table">
+        <thead>
+          <tr>
+            <th>Time</th>
+            <th>Monday</th>
+            <th>Tuesday</th>
+            <th>Wednesday</th>
+            <th>Thursday</th>
+            <th>Friday</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>6:00 - 7:00 AM</td>
+            <td>Yoga</td>
+            <td>Spin</td>
+            <td>Yoga</td>
+            <td>Spin</td>
+            <td>Yoga</td>
+          </tr>
+          <tr>
+            <td>7:30 - 8:30 AM</td>
+            <td>HIIT</td>
+            <td>Strength</td>
+            <td>HIIT</td>
+            <td>Strength</td>
+            <td>HIIT</td>
+          </tr>
+          <tr>
+            <td>6:00 - 7:00 PM</td>
+            <td>Boxing</td>
+            <td>Pilates</td>
+            <td>Boxing</td>
+            <td>Pilates</td>
+            <td>Boxing</td>
+          </tr>
+          <tr>
+            <td>7:30 - 8:30 PM</td>
+            <td>Zumba</td>
+            <td>Crossfit</td>
+            <td>Zumba</td>
+            <td>Crossfit</td>
+            <td>Zumba</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section id="trainers">
+      <h2>Meet Our Trainers</h2>
+      <div class="trainers">
+        <div class="trainer-card">
+          <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e" alt="Trainer Sarah" />
+          <div class="trainer-info">
+            <h3>Sarah Johnson</h3>
+            <p>Certified Yoga Instructor with 10+ years of experience in mindfulness and flexibility training.</p>
+          </div>
+        </div>
+        <div class="trainer-card">
+          <img src="https://images.unsplash.com/photo-1611672585731-fa10603fb9e0?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Trainer Mike" />
+          <div class="trainer-info">
+            <h3>Mike Thompson</h3>
+            <p>Strength and Conditioning Coach specializing in HIIT and weight training programs.</p>
+          </div>
+        </div>
+        <div class="trainer-card">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2" alt="Trainer Emma" />
+          <div class="trainer-info">
+            <h3>Emma Lee</h3>
+            <p>Expert Pilates and Pilates Reformer Instructor focused on core strength and posture.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="plans">
+      <h2>Membership Plans</h2>
+      <div class="plans">
+        <div class="plan">
+          <h3>Basic</h3>
+          <p>Access to gym and group classes</p>
+          <div class="price">$29/month</div>
+        </div>
+        <div class="plan">
+          <h3>Standard</h3>
+          <p>Basic plan + personal trainer sessions</p>
+          <div class="price">$59/month</div>
+        </div>
+        <div class="plan">
+          <h3>Premium</h3>
+          <p>All standard features + unlimited classes & nutrition coaching</p>
+          <div class="price">$89/month</div>
+        </div>
+      </div>
+    </section>
+    <section id="blog">
+      <h2>Fitness Tips Blog</h2>
+      <div class="blog-posts">
+        <article class="blog-post">
+          <img src="https://images.unsplash.com/photo-1505714197102-6ae95091ed70?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Balanced Diet" />
+          <div class="blog-content">
+            <h4>5 Tips for a Balanced Diet</h4>
+            <p>Learn simple strategies for maintaining a nutritious and balanced daily diet.</p>
+          </div>
+        </article>
+        <article class="blog-post">
+          <img src="https://images.unsplash.com/photo-1669951188139-958228a42059?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Workout Motivation" />
+          <div class="blog-content">
+            <h4>Stay Motivated to Workout</h4>
+            <p>Discover ways to keep your workout routine exciting and sustainable.</p>
+          </div>
+        </article>
+        <article class="blog-post">
+          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="Stretching Benefits" />
+          <div class="blog-content">
+            <h4>The Benefits of Daily Stretching</h4>
+            <p>Understand the importance of flexibility exercises in your fitness journey.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </div>
+  <footer>
+    &copy; 2025 PowerZone Fitness Club. All rights reserved.
+  </footer>
+</body>
+</html>
